@@ -1,6 +1,7 @@
 "use strict";
 
 //ЗАДАЧА 1
+
 function solveEquation(a, b, c) {
   let arr = [];
   // код для задачи №1 писать здесь
@@ -22,10 +23,12 @@ function solveEquation(a, b, c) {
 // let res = solveEquation(3, 6, 1);
 // console.log(res);
 
+
 //ЗАДАЧА 2
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-      // код для задачи №2 писать здесь
+
+    // код для задачи №2 писать здесь
 
     //Проверка введённых параметров
         if (isNaN(percent) || percent <= 0 || percent > 100){
@@ -60,4 +63,4 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         return totalAmount;
 }
         
-calculateTotalMortgage(10, 1000, 50000, '2023-10-06');
+// calculateTotalMortgage(10, 1000, 50000, '2023-10-06');
