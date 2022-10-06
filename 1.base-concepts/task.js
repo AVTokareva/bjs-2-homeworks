@@ -58,6 +58,6 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         let totalAmount = Number((payment*creditDuration).toFixed(2));  //ежемесячный платеж * срок, округляем до 2зн после запятой (тип данных преобраз в строку), преобразуем обратно в число
         console.log (totalAmount);
         return totalAmount;
-    }
+}
         
-    calculateTotalMortgage(10, 1000, 50000, '2023-10-06');
+calculateTotalMortgage(10, 1000, 50000, '2023-10-06');
