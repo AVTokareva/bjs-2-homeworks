@@ -32,7 +32,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
     //Проверка введённых параметров
         if (isNaN(percent) || percent <= 0 || percent > 100){
-            const percent = 'test'
+            const percent = 'test';
             return console.log(`Параметр "Процентная ставка" содержит неправильное значение "${percent}"`);
         } 
         
