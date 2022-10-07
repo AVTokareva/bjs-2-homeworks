@@ -3,22 +3,20 @@
 //ЗАДАЧА 1
 
 function solveEquation(a, b, c) {
-  let arr = [];
+  const arrRoots = [];
   // код для задачи №1 писать здесь
-  let d = Math.pow(b, 2) - 4*a*c; //дискриминант
+  const discriminant = Math.pow(b, 2) - 4*a*c; //дискриминант
   
-  if (d === 0) {
+  if (discriminant === 0) {
       let root = -b/(2*a);
-      arr.push(root);
-  } else if (d > 0) {
-      let rootSum = (-b + Math.sqrt(d) )/(2*a);
-      let rootMin = (-b - Math.sqrt(d) )/(2*a);
-      arr.push(rootSum, rootMin);
-  } else {
-      arr = [];   
-  }
+      arrRoots.push(root);
+  } else if (discriminant > 0) {
+      let rootSum = (-b + Math.sqrt(discriminant) )/(2*a);
+      let rootMin = (-b - Math.sqrt(discriminant) )/(2*a);
+      arrRoots.push(rootSum, rootMin);
+  } 
 
-  return arr; // возвращаем массив для дальнейшего использования 
+  return arrRoots; // возвращаем массив для дальнейшего использования 
 }
 // let res = solveEquation(3, 6, 1);
 // console.log(res);
@@ -29,19 +27,18 @@ function solveEquation(a, b, c) {
 function calculateTotalMortgage(percent, contribution, amount, date) {
 
     // код для задачи №2 писать здесь
-
+    // 
     //Проверка введённых параметров
-        if (isNaN(percent) || percent <= 0 || percent > 100){
-            const percent = 'test';
-            return console.log(`Параметр "Процентная ставка" содержит неправильное значение "${percent}"`);
+        if ( isNaN(percent) || percent <= 0 || percent > 100){
+            return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`;
         } 
         
         if (isNaN(contribution) || contribution < 0 || contribution > amount) {
-            return console.log(`Параметр ${contribution} введён неверно!`);
+            return `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`;
         }
         
         if (isNaN(amount) || amount <= 0 || amount < contribution) {
-            return console.log(`Параметр ${amount} введён неверно!`);
+            return `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`;
         }
         
     //тело кредита: сумма, которую необходимо вернуть банку (сумма кредита минус первоначальный взнос)
@@ -64,4 +61,4 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         return totalAmount;
 }
         
-// calculateTotalMortgage(10, 1000, 50000, '2023-10-06');
+// calculateTotalMortgage('dfg', 1000, 50000, '2023-10-06');
