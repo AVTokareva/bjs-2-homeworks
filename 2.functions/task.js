@@ -30,10 +30,10 @@ function worker(arr) { //считаем сумму элементов 1 масс
   return sum;
 }
  
-function makeWork(arrOfArr,worker) {
+function makeWork(arrOfArr,func) {
   let max = -Infinity;
   for (let i = 0; i < arrOfArr.length; i++){
-    let arrSum = worker(arrOfArr[i]); //сохраняем переменную sum, возвращенную ф-цией worker
+    let arrSum = func(arrOfArr[i]); //сохраняем переменную sum, возвращенную ф-цией worker
     if (arrSum > max) {
       max = arrSum;
     }
@@ -53,6 +53,6 @@ function worker2(arr) {
       min = arr[i];
     }
   }
-  let difference = Math.abs(max - min);
-  return difference;
+  return Math.abs(max - min);
+  
 }
