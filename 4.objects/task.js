@@ -25,7 +25,12 @@ Student.prototype.addMark = function (mark) {
 // 4.Создайте метод addMarks(mark1,mark2,mark3...) по аналогии с п.2, который при вызове будет добавлять студенту сразу несколько оценок. Подсказка: так как количество добавляемых оценок неизвестно, воспользуйтесь rest параметром.
 
 Student.prototype.addMarks = function(...otherMarks) {
-  this.marks = [...otherMarks];
+  if(this.marks === undefined){ 
+    this.marks = [...otherMarks];
+  } else {
+    this.marks.push(...[...otherMarks]);
+  }
+  
 }
 
 // 5.Создайте метод getAverage() по аналогии с п.2, который при вызове будет возвращать среднее арифметическое оценок студента.
@@ -35,8 +40,8 @@ Student.prototype.getAverage = function() {
   for (let i = 0; i < this.marks.length; i++) {    
     sum += this.marks[i];  
   }  
-  let average = sum / this.marks.length;  
-  return average;
+  return average = sum / this.marks.length;  
+  
 }
 
 //6.Создайте метод exclude(reason) по аналогии с п.2, который при вызове будет исключать студента из учебного процесса и устанавливать причину исключения. Для этого надо удалить свойства subject и marks и добавить свойство excluded со значением reason.
