@@ -24,9 +24,9 @@ class PrintEditionItem{ //Cоздайте базовый класс `PrintEditio
 
     //Испорченное издание можно подклеить и тем самым улучшить его состояние. Создайте метод `fix()`, увеличивающий `state` в полтора раза. Метод не должен принимать аргументов.
     fix(){
-        if (this._state > 0 && this._state < 100){
-            this.state = this._state * 1.5;
-        }  
+        //убрала проверку
+        this.state = this._state * 1.5;
+         
     }
 }
 
@@ -73,40 +73,36 @@ class Library {
         if (book.state > 30){
             this.books.push(book);
         }
+        return this.books;
     }
 
     findBookBy(type, value){
-        for (let i=0; i < this.books.length; i++){ 
-            for (let [key, val] of Object.entries(this.books[i])){ 
-                    if (key === type && val === value) { 
-                        this.books[i].name;
-                    } else { null; }
+        for (let i=0; i < this.books.length; i++){  
+            if (this.books[i][type] === value) { 
+                return this.books[i];
             } 
         }
-       
+        return null;    
+    }  
+
+    giveBookByName(bookName) {
+        let searchBook = null;
+        //проходим массив books фильтром.Метод фильтр создает новый массив с элементами, прошедшими проверку (то есть есль колбэк вернет true). Поэтому если найденная книга соответствует параметрам, то ставим вернуть false, тк по условию её надо удалить из исходного массива, а на неподходящие книги возвращаем True и в итоге формируется массив без найденной книги.
+        this.books = this.books.filter(book => {
+            if(book.name === bookName) {
+                searchBook = book;
+                return false;
+            }
+            return true;
+        })
+
+        return searchBook;
     }
 
 
 
 }
-    //этот путь к названию и перебор объекта ТОЧНО РАБОТАЕТ
-    // library.books[0].name
-//     for (let i=0; i < library.books.length; i++){ 
-//         for (let [key, val] of Object.entries(library.books[i])){ 
-//             console.log (key, val);
-//         } 
-//     }
-//     for (let i=0; i < library.books.length; i++){ 
-//         for (let [key, val] of Object.entries(library.books[i])){ 
-//             if (key === 'name' && val === 'Машина времени') { console.log ('ok');}
-//         } 
-//     }
-//  //ЭТО РАБОТАЕТ
-//     for (let i=0; i < library.books.length; i++){ 
-//         for (let [key, val] of Object.entries(library.books[i])){ 
-//                 if (key === 'name' && val === 'eret') { 
-//                     console.log (library.books[i].name);
-//                 } else { console.log ('null');}
-//         } 
-//     }
+
+
+
 
